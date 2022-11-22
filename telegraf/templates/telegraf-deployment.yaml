@@ -4,19 +4,19 @@ metadata:
   name: {{ .Release.Name }}
   namespace: {{ default "telegraf" .Values.namespace }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: 1
   selector:
     matchLabels: {{- include "telegraf.labels" . | nindent 6 }}
   template:
     metadata:
       labels: {{- include "telegraf.labels" . | nindent 8 }}
     spec:
-      serviceAccountName: {{ .Values.serviceAccountName }}
+      serviceAccountName: {{ .Release.Name }}
       containers:
       - name: {{ .Release.Name }}
-        image: "{{ .Values.image.repo }}:{{ .Values.image.tag}}"
-        imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-        resources: {{ toYaml .Values.resources | nindent 10 }}
+        image: {{ default "registry.fke.fptcloud.com/a6762c5a-56d1-4285-b4bc-b61177a171e1/telegraf:latest" .Values.image }}
+        imagePullPolicy: Always
+        resources: {}
         env: {{ toYaml .Values.env | nindent 8 }}
       imagePullSecrets: 
       - name: {{ .Release.Name }}-key

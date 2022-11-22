@@ -10,6 +10,6 @@ Create the name of the service account to use
 {{- end -}}
 
 {{- define "telegraf.labels" -}}
-app.kubernetes.io/name: {{ .Values.label.name }}
-app.kubernetes.io/instance: {{ .Values.label.instance }}
+app.kubernetes.io/name: telegraf
+app.kubernetes.io/instance: telegraf
 {{- end }}

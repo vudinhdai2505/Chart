@@ -8,5 +8,5 @@ roleRef:
   name: {{ .Release.Name }}-clusterrole
 subjects:
 - kind: ServiceAccount
-  name: {{ .Values.serviceAccountName }}
+  name: {{ .Release.Name }}
   namespace: {{ default "telegraf" .Values.namespace }}

@@ -1,21 +1,8 @@
-replicaCount: 1
-image:
-  repo: "registry.fke.fptcloud.com/a6762c5a-56d1-4285-b4bc-b61177a171e1/telegraf"
-  tag: "latest"
-  pullPolicy: Always
-namespace: telegraf
 
-label:
-  name: telegraf
-  instance: telegraf
+#image: "registry.fke.fptcloud.com/a6762c5a-56d1-4285-b4bc-b61177a171e1/telegraf:latest"
+#namespace: telegraf
+#dockerconfigjson: ewoJImF1dGhzIjogewoJCSJyZWdpc3RyeS5ma2UuZnB0Y2xvdWQuY29tIjogewoJCQkiYXV0aCI6ICJlSEJzWVhRdFpHVnRiMEJtY0hSamJHOTFaQzVqYjIwNmFXcHJXVTFQY1hST2REbEhkMkozVWxsRWVuSmplVTFDUWxOdVJuRnVURkU9IgoJCX0KCX0KfQo=
 
-serviceAccountName: telegraf
-imagePullSecrets:
-  - name: telegraf
-secret: telegraf
-dockerconfigjson: ewoJImF1dGhzIjogewoJCSJyZWdpc3RyeS5ma2UuZnB0Y2xvdWQuY29tIjogewoJCQkiYXV0aCI6ICJlSEJzWVhRdFpHVnRiMEJtY0hSamJHOTFaQzVqYjIwNmFXcHJXVTFQY1hST2REbEhkMkozVWxsRWVuSmplVTFDUWxOdVJuRnVURkU9IgoJCX0KCX0KfQo=
-
-resources: {}
 env:
   - name: CLUSTER_NAME
     value: "FKE"
